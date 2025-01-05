@@ -1,4 +1,4 @@
-﻿using cruid.Pages;
+﻿using cruid.database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,19 +11,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace cruid
+namespace cruid.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для Players.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Players : Page
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-            Mainframe.Content = new Mainpage();
-        }
+
     }
 }

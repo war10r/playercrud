@@ -7,13 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace cruid
+namespace cruid.database
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class sp_helpdiagramdefinition_Result
+    public partial class player
     {
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int playerID { get; set; }
+        public string login { get; set; }
+        public string password { get; set; }
+        public string name { get; set; }
+        public int countryID { get; set; }
+        public int age { get; set; }
+    
+        public virtual country country { get; set; }
     }
 }

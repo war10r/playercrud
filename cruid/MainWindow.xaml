@@ -5,8 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cruid"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Frame Name=""
-    </Grid>
+        Title="Игроки" Height="450" Width="800">
+    <Frame Name="Mainframe" NavigationUIVisibility="Hidden" Background="White"/>
 </Window>
