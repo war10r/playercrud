@@ -19,8 +19,35 @@ namespace cruid.Pages
     /// <summary>
     /// Логика взаимодействия для Players.xaml
     /// </summary>
+    /// 
+
     public partial class Players : Page
     {
+        public Players()
+        {
+            InitializeComponent();
+        }
+
+        private void AddPlayers(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddPlayer());
+        }
+
+        private void DeletePlayers(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new DeletePlayer());
+        }
+
+        private void UpdatePlayers(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new UpdatePlayer());
+        }
+
+        private void ShowPlayers(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ShowPlayers());
+        }
+
 
     }
 }

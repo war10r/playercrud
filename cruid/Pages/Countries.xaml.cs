@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using cruid.Pages.CountryPages;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,6 +24,21 @@ namespace cruid.Pages
         public Countries()
         {
             InitializeComponent();
+        }
+
+        private void AddCountry(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddCountry());
+        }
+
+        private void DeleteCountry(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new DeleteCountry());
+        }
+
+        private void ShowCountries(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ShowCountries());
         }
     }
 }

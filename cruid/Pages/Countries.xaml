@@ -8,5 +8,9 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Countries">
 
-    <Grid Background="White"/>
+    <Grid Background="White">
+        <Button Content="Добавить страну" HorizontalAlignment="Left" Margin="50,51,0,0" VerticalAlignment="Top" Height="88" Width="202" Click="AddCountry"/>
+        <Button Content="Удалить страну" HorizontalAlignment="Left" Margin="555,51,0,0" VerticalAlignment="Top" Height="88" Width="202" Click="DeleteCountry"/>
+        <Button Content="Показать все страны" HorizontalAlignment="Center" Margin="0,296,0,0" VerticalAlignment="Top" Height="88" Width="202" Click="ShowCountries"/>
+    </Grid>
 </Page>

@@ -1,6 +1,7 @@
 ﻿using cruid.database;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,33 +14,33 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Database = cruid.database.Database;
+
 
 namespace cruid.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для AddPlayer.xaml
+    /// Логика взаимодействия для AddCountry.xaml
     /// </summary>
-    public partial class AddPlayer : Page
+
+
+    public partial class AddCountry : Page
     {
-        private Database dataBase;
-        public AddPlayer()
+    private Database dataBase;
+        public AddCountry()
         {
             InitializeComponent();
-
+            
             var dbContext = new playersEntities();
             dataBase = new Database(dbContext);
         }
 
-        private async void PlayerAdd(object sender, RoutedEventArgs e)
+        private async void CountryAdd(object sender, RoutedEventArgs e)
         {
-            string name = nameBox.Text;
-            string login = loginBox.Text;
-            string password = passwordBox.Text;
-            int age = int.Parse(ageBox.Text);
+            string name = countrynameBox.Text;
 
-
-            await dataBase.SavePlayer(name, login, password, age);
+            await dataBase.AddCountry(name);
+            countrynameBox.Clear();
         }
-    
     }
 }

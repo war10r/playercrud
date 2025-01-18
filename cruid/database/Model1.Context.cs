@@ -26,7 +26,7 @@ namespace cruid.database
         }
     
         public virtual DbSet<country> country { get; set; }
-        public virtual DbSet<player> player { get; set; }
+        public virtual DbSet<players> players { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

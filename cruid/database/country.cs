@@ -17,14 +17,14 @@ namespace cruid.database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public country()
         {
-            this.player = new HashSet<player>();
+            this.players = new HashSet<players>();
         }
     
         public int countryID { get; set; }
         public string countryname { get; set; }
-        public int playercount { get; set; }
+        public Nullable<int> playercount { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<player> player { get; set; }
+        public virtual ICollection<players> players { get; set; }
     }
 }

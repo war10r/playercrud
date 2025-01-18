@@ -12,13 +12,13 @@ namespace cruid.database
     using System;
     using System.Collections.Generic;
     
-    public partial class player
+    public partial class players
     {
         public int playerID { get; set; }
         public string login { get; set; }
         public string password { get; set; }
         public string name { get; set; }
-        public int countryID { get; set; }
+        public int countryID_player { get; set; }
         public int age { get; set; }
     
         public virtual country country { get; set; }

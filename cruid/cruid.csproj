@@ -67,6 +67,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="database\Connect.cs" />
     <Compile Include="database\country.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -86,7 +87,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="database\player.cs">
+    <Compile Include="database\players.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="database\sysdiagrams.cs">
@@ -95,11 +96,23 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AddPlayer.xaml.cs">
+    <Compile Include="Pages\CountryPages\AddCountry.xaml.cs">
+      <DependentUpon>AddCountry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CountryPages\DeleteCountry.xaml.cs">
+      <DependentUpon>DeleteCountry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CountryPages\ShowCountries.xaml.cs">
+      <DependentUpon>ShowCountries.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PlayerPages\AddPlayer.xaml.cs">
       <DependentUpon>AddPlayer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Countries.xaml.cs">
       <DependentUpon>Countries.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PlayerPages\DeletePlayer.xaml.cs">
+      <DependentUpon>DeletePlayer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Mainpage.xaml.cs">
       <DependentUpon>Mainpage.xaml</DependentUpon>
@@ -113,6 +126,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\PlayerPages\ShowPlayers.xaml.cs">
+      <DependentUpon>ShowPlayers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PlayerPages\UpdatePlayer.xaml.cs">
+      <DependentUpon>UpdatePlayer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -154,11 +173,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\AddPlayer.xaml">
+    <Page Include="Pages\CountryPages\AddCountry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CountryPages\DeleteCountry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CountryPages\ShowCountries.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PlayerPages\AddPlayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Countries.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PlayerPages\DeletePlayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -170,7 +205,16 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PlayerPages\ShowPlayers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PlayerPages\UpdatePlayer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="database\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
