@@ -33,22 +33,17 @@ namespace cruid.Pages
 
             var dbContext = new playersEntities();
             dataBase = new Database(dbContext);
+
+            CountrySelectComboBox.ItemsSource = dbContext.country.ToList();
         }
 
         private async void PlayerAdd(object sender, RoutedEventArgs e)
         {
-            //int id = 0;
-            //string cntrName = CountrySelectComboBox.Text;
-            //var countries = _context.country.Where(ks => ks.countryID == id).ToList();
-            //var country = _context.country.Find(id);
-
-            //int id = (from players in playersEntities select players.Id);
-
             string name = nameBox.Text;
             string login = loginBox.Text;
             string password = passwordBox.Text;
             int age = int.Parse(ageBox.Text);
-            int countryID = 0;
+            int countryID = ((country)CountrySelectComboBox.SelectedItem).countryID;
 
             await dataBase.SavePlayer(name, login, password, age, countryID);
         }
