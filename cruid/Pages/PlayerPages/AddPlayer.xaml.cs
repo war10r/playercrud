@@ -1,4 +1,5 @@
-﻿using cruid.database;
+﻿using cruid.Controllers;
+using cruid.database;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -21,31 +22,28 @@ namespace cruid.Pages
     public partial class AddPlayer : Page
     {
 
-        private readonly playersEntities _context;
-        private Database dataBase;
-        class ComboItem
-        {
-            public string Text { get; set; }
-        }
+        private PlayersController playerController;
+        private CountriesControlles countriesControlles;
+
         public AddPlayer()
         {
             InitializeComponent();
+            playerController = new PlayersController();
+            countriesControlles = new CountriesControlles();
 
-            var dbContext = new playersEntities();
-            dataBase = new Database(dbContext);
-
-            CountrySelectComboBox.ItemsSource = dbContext.country.ToList();
+            CountrySelectComboBox.ItemsSource = countriesControlles.GetAllCountries();
+            CountrySelectComboBox.DisplayMemberPath = "countryname";
         }
 
-        private async void PlayerAdd(object sender, RoutedEventArgs e)
+        private void PlayerAdd(object sender, RoutedEventArgs e)
         {
-            string name = nameBox.Text;
-            string login = loginBox.Text;
-            string password = passwordBox.Text;
-            int age = int.Parse(ageBox.Text);
-            int countryID = ((country)CountrySelectComboBox.SelectedItem).countryID;
-
-            await dataBase.SavePlayer(name, login, password, age, countryID);
+            playerController.AddNewPlayerToDb(
+                nameBox.Text,
+                loginBox.Text, 
+                passwordBox.Text,
+                int.Parse(ageBox.Text),
+                ((country)CountrySelectComboBox.SelectedItem).countryID
+                );
         }
     }
 }
