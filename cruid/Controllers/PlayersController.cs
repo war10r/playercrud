@@ -21,16 +21,16 @@ namespace cruid.Controllers
 
         public void AddNewPlayerToDb(string login, string password, string name, int age, int countryID)
         {
-            var player = new players()
+            var player = new Players()
             {
-                name = name,
-                login = login,
-                password = password,
-                countryID_player = countryID,
-                age = age,
+                Name = name,
+                Login = login,
+                Password = password,
+                CountryID_Player = countryID,
+                Age = age,
             };
 
-            dbConncetion.players.Add(player);
+            dbConncetion.Players.Add(player);
             dbConncetion.SaveChanges();
         }
     }

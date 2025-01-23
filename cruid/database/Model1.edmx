@@ -5,24 +5,24 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="Хранилище playersModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="country">
+        <EntityType Name="Country">
           <Key>
-            <PropertyRef Name="countryID" />
+            <PropertyRef Name="CountryID" />
           </Key>
-          <Property Name="countryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="countryname" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="playercount" Type="int" />
+          <Property Name="CountryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryName" Type="nchar" MaxLength="35" Nullable="false" />
+          <Property Name="PlayerCount" Type="int" />
         </EntityType>
-        <EntityType Name="players">
+        <EntityType Name="Players">
           <Key>
-            <PropertyRef Name="playerID" />
+            <PropertyRef Name="PlayerID" />
           </Key>
-          <Property Name="playerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="login" Type="nchar" MaxLength="15" Nullable="false" />
-          <Property Name="password" Type="nchar" MaxLength="20" Nullable="false" />
-          <Property Name="name" Type="nchar" MaxLength="15" Nullable="false" />
-          <Property Name="countryID_player" Type="int" Nullable="false" />
-          <Property Name="age" Type="int" Nullable="false" />
+          <Property Name="PlayerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="nchar" MaxLength="15" Nullable="false" />
+          <Property Name="Password" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="15" Nullable="false" />
+          <Property Name="CountryID_Player" Type="int" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -35,24 +35,24 @@
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK_players_country">
-          <End Role="country" Type="Self.country" Multiplicity="1" />
-          <End Role="players" Type="Self.players" Multiplicity="*" />
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="Players" Type="Self.Players" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="country">
-              <PropertyRef Name="countryID" />
+            <Principal Role="Country">
+              <PropertyRef Name="CountryID" />
             </Principal>
-            <Dependent Role="players">
-              <PropertyRef Name="countryID_player" />
+            <Dependent Role="Players">
+              <PropertyRef Name="CountryID_Player" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище playersModelContainer">
-          <EntitySet Name="country" EntityType="Self.country" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="players" EntityType="Self.players" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Players" EntityType="Self.Players" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_players_country" Association="Self.FK_players_country">
-            <End Role="country" EntitySet="country" />
-            <End Role="players" EntitySet="players" />
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Players" EntitySet="Players" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -60,26 +60,26 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="playersModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="country">
+        <EntityType Name="Country">
           <Key>
-            <PropertyRef Name="countryID" />
+            <PropertyRef Name="CountryID" />
           </Key>
-          <Property Name="countryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="countryname" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="playercount" Type="Int32" />
-          <NavigationProperty Name="players" Relationship="Self.FK_players_country" FromRole="country" ToRole="players" />
+          <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" MaxLength="35" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="PlayerCount" Type="Int32" />
+          <NavigationProperty Name="Players" Relationship="Self.FK_players_country" FromRole="Country" ToRole="Players" />
         </EntityType>
-        <EntityType Name="players">
+        <EntityType Name="Players">
           <Key>
-            <PropertyRef Name="playerID" />
+            <PropertyRef Name="PlayerID" />
           </Key>
-          <Property Name="playerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="login" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="password" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="countryID_player" Type="Int32" Nullable="false" />
-          <Property Name="age" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="country" Relationship="Self.FK_players_country" FromRole="players" ToRole="country" />
+          <Property Name="PlayerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="CountryID_Player" Type="Int32" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_players_country" FromRole="Players" ToRole="Country" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -92,24 +92,24 @@
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK_players_country">
-          <End Role="country" Type="Self.country" Multiplicity="1" />
-          <End Role="players" Type="Self.players" Multiplicity="*" />
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="Players" Type="Self.Players" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="country">
-              <PropertyRef Name="countryID" />
+            <Principal Role="Country">
+              <PropertyRef Name="CountryID" />
             </Principal>
-            <Dependent Role="players">
-              <PropertyRef Name="countryID_player" />
+            <Dependent Role="Players">
+              <PropertyRef Name="CountryID_Player" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="playersEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="country" EntityType="Self.country" />
-          <EntitySet Name="players" EntityType="Self.players" />
+          <EntitySet Name="Country" EntityType="Self.Country" />
+          <EntitySet Name="Players" EntityType="Self.Players" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <AssociationSet Name="FK_players_country" Association="Self.FK_players_country">
-            <End Role="country" EntitySet="country" />
-            <End Role="players" EntitySet="players" />
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Players" EntitySet="Players" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -118,24 +118,24 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище playersModelContainer" CdmEntityContainer="playersEntities">
-          <EntitySetMapping Name="country">
-            <EntityTypeMapping TypeName="playersModel.country">
-              <MappingFragment StoreEntitySet="country">
-                <ScalarProperty Name="countryID" ColumnName="countryID" />
-                <ScalarProperty Name="countryname" ColumnName="countryname" />
-                <ScalarProperty Name="playercount" ColumnName="playercount" />
+          <EntitySetMapping Name="Country">
+            <EntityTypeMapping TypeName="playersModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="PlayerCount" ColumnName="PlayerCount" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="players">
-            <EntityTypeMapping TypeName="playersModel.players">
-              <MappingFragment StoreEntitySet="players">
-                <ScalarProperty Name="playerID" ColumnName="playerID" />
-                <ScalarProperty Name="login" ColumnName="login" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="countryID_player" ColumnName="countryID_player" />
-                <ScalarProperty Name="age" ColumnName="age" />
+          <EntitySetMapping Name="Players">
+            <EntityTypeMapping TypeName="playersModel.Players">
+              <MappingFragment StoreEntitySet="Players">
+                <ScalarProperty Name="PlayerID" ColumnName="PlayerID" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CountryID_Player" ColumnName="CountryID_Player" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

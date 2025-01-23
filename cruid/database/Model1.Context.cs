@@ -25,8 +25,8 @@ namespace cruid.database
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<country> country { get; set; }
-        public virtual DbSet<players> players { get; set; }
+        public virtual DbSet<Country> Country { get; set; }
+        public virtual DbSet<Players> Players { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

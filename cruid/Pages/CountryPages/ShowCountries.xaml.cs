@@ -26,7 +26,7 @@ namespace cruid.Pages.CountryPages
         {
             InitializeComponent();
 
-            var data = DbConnect.conn.country.ToList();
+            var data = DbConnect.DbConnection.Country.ToList();
             CountriesGrid.ItemsSource = data;
         }
     }

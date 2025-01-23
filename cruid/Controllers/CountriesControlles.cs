@@ -16,9 +16,20 @@ namespace cruid.Controllers
             dbConncetion = DbConnect.DbConnection;
         }
 
-        public List<country> GetAllCountries()
+        public List<Country> GetAllCountries()
         {
-            return dbConncetion.country.ToList();
+            return dbConncetion.Country.ToList();
+        }
+
+        public void AddNewCountryToDb(string name)
+        {
+            var country = new Country()
+            {
+                CountryName = name,
+            };
+
+            dbConncetion.Country.Add(country);
+            dbConncetion.SaveChanges();
         }
     }
 }

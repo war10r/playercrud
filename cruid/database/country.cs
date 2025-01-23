@@ -12,19 +12,19 @@ namespace cruid.database
     using System;
     using System.Collections.Generic;
     
-    public partial class country
+    public partial class Country
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public country()
+        public Country()
         {
-            this.players = new HashSet<players>();
+            this.Players = new HashSet<Players>();
         }
     
-        public int countryID { get; set; }
-        public string countryname { get; set; }
-        public Nullable<int> playercount { get; set; }
+        public int CountryID { get; set; }
+        public string CountryName { get; set; }
+        public Nullable<int> PlayerCount { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<players> players { get; set; }
+        public virtual ICollection<Players> Players { get; set; }
     }
 }

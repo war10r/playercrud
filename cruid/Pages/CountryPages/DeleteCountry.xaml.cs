@@ -21,20 +21,20 @@ namespace cruid.Pages.CountryPages
     /// </summary>
     public partial class DeleteCountry : Page
     {
-        private Database dataBase;
+        //private Database dataBase;
         public DeleteCountry()
         {
             InitializeComponent();
 
             var dbContext = new playersEntities();
-            dataBase = new Database(dbContext);
+            //dataBase = new Database(dbContext);
         }
 
         private async void CountryDelete(object sender, RoutedEventArgs e)
         {
             int id = int.Parse(countrynameBox.Text);
 
-            await dataBase.DeleteCountry(id);
+            //await dataBase.DeleteCountry(id);
         }
     }
 }

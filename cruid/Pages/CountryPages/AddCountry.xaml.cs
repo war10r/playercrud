@@ -1,4 +1,5 @@
-﻿using cruid.database;
+﻿using cruid.Controllers;
+using cruid.database;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -14,7 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Database = cruid.database.Database;
+//using Database = cruid.database.Database;
 
 
 namespace cruid.Pages
@@ -26,21 +27,23 @@ namespace cruid.Pages
 
     public partial class AddCountry : Page
     {
-    private Database dataBase;
+        private PlayersController playerController;
+        private CountriesControlles countriesControlles;
+
         public AddCountry()
         {
             InitializeComponent();
-            
-            var dbContext = new playersEntities();
-            dataBase = new Database(dbContext);
+
+            playerController = new PlayersController();
+            countriesControlles = new CountriesControlles();
         }
 
-        private async void CountryAdd(object sender, RoutedEventArgs e)
+        private void CountryAdd(object sender, RoutedEventArgs e)
         {
-            string name = countrynameBox.Text;
+            countriesControlles.AddNewCountryToDb(
+                countrynameBox.Text);
 
-            await dataBase.AddCountry(name);
-            countrynameBox.Clear();
+
         }
     }
 }

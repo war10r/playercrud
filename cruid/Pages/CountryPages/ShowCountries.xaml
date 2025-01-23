@@ -11,9 +11,9 @@
     <Grid Background="White">
         <DataGrid x:Name = "CountriesGrid" AutoGenerateColumns="False" Margin="53,54,70,43" FontFamily="Arial Black" FontSize="16" Background="#FFB75C5C">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Width="*" Binding="{Binding countryID}"/>
-                <DataGridTextColumn Header="Название страны" Width="*" Binding="{Binding countryname}"/>
-                <DataGridTextColumn Header="Число игроков" Width="*" Binding="{Binding playercount}"/>
+                <DataGridTextColumn Header="ID" Width="*" Binding="{Binding CountryID}"/>
+                <DataGridTextColumn Header="Название страны" Width="*" Binding="{Binding CountryName}"/>
+                <DataGridTextColumn Header="Число игроков" Width="*" Binding="{Binding PlayerCount}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
