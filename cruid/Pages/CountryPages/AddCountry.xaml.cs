@@ -28,19 +28,19 @@ namespace cruid.Pages
     public partial class AddCountry : Page
     {
         private PlayersController playerController;
-        private CountriesControlles countriesControlles;
+        private CountriesControllers countriesControllers;
 
         public AddCountry()
         {
             InitializeComponent();
 
             playerController = new PlayersController();
-            countriesControlles = new CountriesControlles();
+            countriesControllers = new CountriesControllers();
         }
 
         private void CountryAdd(object sender, RoutedEventArgs e)
         {
-            countriesControlles.AddNewCountryToDb(
+            countriesControllers.AddNewCountryToDb(
                 countrynameBox.Text);
 
 

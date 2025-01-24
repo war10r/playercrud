@@ -12,11 +12,11 @@ namespace cruid.Controllers
 {
     internal class PlayersController
     {
-        private playersEntities dbConncetion;
+        private playersEntities dbConnection;
 
         public PlayersController()
         {
-            dbConncetion = DbConnect.DbConnection;
+            dbConnection = DbConnect.DbConnection;
         }
 
         public void AddNewPlayerToDb(string login, string password, string name, int age, int countryID)
@@ -30,8 +30,24 @@ namespace cruid.Controllers
                 Age = age,
             };
 
-            dbConncetion.Players.Add(player);
-            dbConncetion.SaveChanges();
+            dbConnection.Players.Add(player);
+            dbConnection.SaveChanges();
+        }
+
+        public void DeletePlayerFromDb(int id)
+        {
+            var players = dbConnection.Players.Where(ks => ks.PlayerID == id).ToList();
+            var player = dbConnection.Players.Find(id);
+
+            if (players.Any())
+            {
+                dbConnection.Players.RemoveRange(players);
+                dbConnection.SaveChanges();
+            }
+
+
+            dbConnection.Players.Remove(player);
+            dbConnection.SaveChangesAsync();
         }
     }
 }

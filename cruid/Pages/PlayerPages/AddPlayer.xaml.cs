@@ -24,14 +24,14 @@ namespace cruid.Pages
     {
 
         private PlayersController playerController;
-        private CountriesControlles countriesControlles;
+        private CountriesControllers countriesControlles;
         private playersEntities _context;
 
         public AddPlayer()
         {
             InitializeComponent();
             playerController = new PlayersController();
-            countriesControlles = new CountriesControlles();
+            countriesControlles = new CountriesControllers();
             _context = new playersEntities();
 
             CountrySelectComboBox.ItemsSource = countriesControlles.GetAllCountries();

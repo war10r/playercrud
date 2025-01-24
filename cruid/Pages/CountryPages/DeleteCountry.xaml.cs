@@ -1,6 +1,8 @@
-﻿using cruid.database;
+﻿using cruid.Controllers;
+using cruid.database;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,20 +23,20 @@ namespace cruid.Pages.CountryPages
     /// </summary>
     public partial class DeleteCountry : Page
     {
-        //private Database dataBase;
+        private CountriesControllers countriesControllers;
         public DeleteCountry()
         {
             InitializeComponent();
 
             var dbContext = new playersEntities();
-            //dataBase = new Database(dbContext);
+            countriesControllers = new CountriesControllers();
         }
 
-        private async void CountryDelete(object sender, RoutedEventArgs e)
+        private void CountryDelete(object sender, RoutedEventArgs e)
         {
             int id = int.Parse(countrynameBox.Text);
 
-            //await dataBase.DeleteCountry(id);
+            countriesControllers.RemoveCountryFromDb(id);
         }
     }
 }
